@@ -44,7 +44,7 @@ def batcher(params, batch):
 
 
 # Set params for SentEval
-params_senteval = {'task_path': args.data_dir, 'usepytorch': True, 'kfold': 5}
+params_senteval = {'task_path': args.data_dir, 'usepytorch': False, 'kfold': 5}
 params_senteval['classifier'] = {'nhid': 0, 'optim': 'rmsprop',
                                  'batch_size': 128,
                                  'tenacity': 3, 'epoch_size': 2}
