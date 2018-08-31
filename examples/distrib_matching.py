@@ -7,7 +7,7 @@ import logging
 
 import senteval
 
-parser = argparse.ArgumentParser
+parser = argparse.ArgumentParser()
 parser.add_argument('data_dir')
 parser.add_argument('embeddings_dir')
 args = parser.parse_args()
