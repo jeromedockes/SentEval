@@ -12,7 +12,7 @@ parser.add_argument('data_dir')
 parser.add_argument('embeddings_dir')
 args = parser.parse_args()
 
-MODEL_PATH = pathlib.Path(args.embeddings_dir / 'seed_0' / 'model.pkl')
+MODEL_PATH = pathlib.Path(args.embeddings_dir) / 'seed_0' / 'model.pkl'
 
 
 def prepare(params, samples):
