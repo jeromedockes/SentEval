@@ -53,11 +53,15 @@ params_senteval['classifier'] = {'nhid': 0, 'optim': 'rmsprop',
 logging.basicConfig(format='%(asctime)s : %(message)s', level=logging.DEBUG)
 
 se = senteval.engine.SE(params_senteval, batcher, prepare)
-transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16',
-                  'MR', 'CR', 'MPQA', 'SUBJ', 'SST2', 'SST5', 'TREC', 'MRPC',
-                  'SICKEntailment', 'SICKRelatedness', 'STSBenchmark',
-                  'Length', 'WordContent', 'Depth', 'TopConstituents',
-                  'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
-                  'OddManOut', 'CoordinationInversion']
+transfer_tasks = [
+                  'MR', 'CR', 'MPQA', 'SUBJ', 'SST2', 'SST5', 'TREC', 'MRPC'
+    ]
 results = se.eval(transfer_tasks)
 print(results)
+
+# transfer_tasks = ['STS12', 'STS13', 'STS14', 'STS15', 'STS16',
+#                   'MR', 'CR', 'MPQA', 'SUBJ', 'SST2', 'SST5', 'TREC', 'MRPC',
+#                   'SICKEntailment', 'SICKRelatedness', 'STSBenchmark',
+#                   'Length', 'WordContent', 'Depth', 'TopConstituents',
+#                   'BigramShift', 'Tense', 'SubjNumber', 'ObjNumber',
+#                   'OddManOut', 'CoordinationInversion']
