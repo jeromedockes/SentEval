@@ -21,6 +21,8 @@ class RunScoring(object):
     def __init__(self, run_dir):
         self.run_dir = run_dir
         self.model_path = pathlib.Path(self.run_dir) / 'model.pkl'
+        if not self.model_path.is_file():
+            raise FileNotFoundError()
 
     def prepare(self, params, samples):
         with open(str(self.model_path), 'rb') as f:
@@ -75,7 +77,10 @@ def score_model(model_dir):
     print('-----------')
     model_dir = pathlib.Path(model_dir)
     for run_dir in model_dir.glob('seed_*'):
-        scorer = RunScoring(run_dir)
+        try:
+            scorer = RunScoring(run_dir)
+        except FileNotFoundError:
+            return
         scorer.compute_scores()
 
 
